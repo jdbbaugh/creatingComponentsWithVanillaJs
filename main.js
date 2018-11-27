@@ -77,22 +77,22 @@ const students = [
 let divContainer = document.querySelector("#container");
 
 
-const h1 = (title, style) => {
-    return `<h1 class="${style} xx-large">${title}</h1>`
+const h1 = (...props) => {
+    return `<h1 class="${props[1]} xx-large">${props[0]}</h1>`
 }
 
-const section = (title, style) => {
-    return `<section class="bordered dashed ${style}">${title}</section>`
+const section = (...props) => {
+    return `<section class="bordered dashed ${props[1]}">${props[0]}</section>`
 }
 
-const aside = (title, style) => {
-    return `<aside class="${style}">${title}</aside>`
+const aside = (...props) => {
+    return `<aside class="${props[1]}">${props[0]}</aside>`
 }
-const student = (name, nameStyle, className, info) => `
+const student = (...props) => `
     <div id="student">
-        ${h1(name, nameStyle)}
-        ${section(className, "section--padded")}
-        ${aside(info, "pushRight")}
+        ${h1(props[0], props[1])}
+        ${section(props[2], "section--padded")}
+        ${aside(props[3], "pushRight")}
     </div>
 `
 
