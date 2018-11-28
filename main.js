@@ -77,22 +77,16 @@ const students = [
 let divContainer = document.querySelector("#container");
 
 
-const h1 = (...props) => {
-    return `<h1 class="${props[1]} xx-large">${props[0]}</h1>`
+const elementMadness = (...props) => {
+    return `<${props[2]} class="${props[1]} ${props[3]}">${props[0]}</${props[2]}>`
 }
 
-const section = (...props) => {
-    return `<section class="bordered dashed ${props[1]}">${props[0]}</section>`
-}
 
-const aside = (...props) => {
-    return `<aside class="${props[1]}">${props[0]}</aside>`
-}
 const student = (...props) => `
     <div id="student">
-        ${h1(props[0], props[1])}
-        ${section(props[2], "section--padded")}
-        ${aside(props[3], "pushRight")}
+        ${elementMadness(props[0], props[1], "h1", 'xx-large')}
+        ${elementMadness(props[2], "section--padded bordered dashed", 'section')}
+        ${elementMadness(props[3], "pushRight", 'aside')}
     </div>
 `
 
